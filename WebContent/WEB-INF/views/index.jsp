@@ -7,12 +7,15 @@
 <title>index</title>
 </head>
 <body>
-	<a href="/movie/list">영화 리스트 가기</a>
+<div align="center">
+	<a href="/movie/list"><button>영화 리스트 가기</button></a>
+	<a href="/views/movie/ajax_list"><button>AJAX 영화 리스트 가기</button></a><br><br>
 <script>
 	if(msg!=null) {
 		alert('${msg}');
 	}
 </script>
+<c:if test="${sessionScope.user==null}">
 <form method="post" action="/user">
 <table border="1">
 	<tr>
@@ -29,7 +32,15 @@
 </table>
 <input type="hidden" name="cmd" value="login">
 </form>
-<a href="/views/user/join">회원가입</a>
+<a href="/views/user/join"><button>회원가입</button></a>
+</c:if>
+<c:if test="${sessionScope.user!=null}">
+<b>~~~${sessionScope.user.ui_name}님 반갑습니다~~~</b><br><br>
+<form method="post" action="/user">
+<input type="hidden" name="cmd" value="logout">
+<button>로그아웃</button>
+</form>
+</c:if>
+</div>
 </body>
-
 </html>

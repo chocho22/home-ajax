@@ -7,8 +7,9 @@
 <title>영화 등록하기</title>
 </head>
 <body>
+<div align="center">
 	<form method="post" action="/movie/insert">
-		<table border="1">
+		<table border="1" cellpadding="5">
 			<tr>
 				<th>제목</th>
 				<td><input type="text" name="mi_name" id="mi_name"></td>
@@ -32,5 +33,6 @@
 		</table>
 		<button>등록</button>
 	</form>
+</div>
 </body>
 </html>
